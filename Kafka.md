@@ -20,7 +20,8 @@ http://orchome.com/5
 https://blog.csdn.net/qq_31598113/article/details/70893878 副本机制  
 https://my.oschina.net/u/236698/blog/501834  kafka&rabbitmq  
 https://blog.csdn.net/tangdong3415/article/details/53432166  好文  
-https://www.jianshu.com/p/1582b37291f9  队列应用场景&对比
+https://www.jianshu.com/p/1582b37291f9  队列应用场景&对比  
+http://www.cnblogs.com/cjsblog/p/9664536.html. Kafka分区与消费者的关系，producer如何选择分区，消费者如何选择分区。（Good）
 ```
 # Licensed to the Apache Software Foundation (ASF) under one or more
 # contributor license agreements.  See the NOTICE file distributed with
