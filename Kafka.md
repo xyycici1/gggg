@@ -14,8 +14,8 @@
 
 日志的分区partition （分布）在Kafka集群的服务器上。每个服务器在处理数据和请求时，共享这些分区。每一个分区都会在已配置的服务器上进行备份，确保容错性.
 
-https://github.com/xyycici1/gggg/blob/master/image/001.png
-https://github.com/xyycici1/gggg/blob/master/image/002.png
+![1](https://raw.githubusercontent.com/xyycici1/gggg/master/image/001.png)
+![2](https://raw.githubusercontent.com/xyycici1/gggg/master/image/002.png)
 
 参考文档：  
 http://www.cnblogs.com/liuwei6/p/6900686.html   group and partition
