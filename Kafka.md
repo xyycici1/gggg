@@ -5,7 +5,7 @@
 有序：单个分区保证了在分区内的排列是有序的，分发给消费者是按照存储的顺序推送的。多个分区之间是无法保证顺序的。（生产者发送到一个特定的Topic的分区上，消息将会按照它们发送的顺序依次加入，也就是说，如果一个消息M1和M2使用相同的producer发送，M1先发送，那么M1将比M2的offset低，并且优先的出现在日志中）  
 并行： 多个分区可并行推送消息。（消费者拿到消息，多线程处理消息，这是消费者的并行，kafka单个分区来说是串行推送消息的。角度不同。)       
 1 分区  = 1leader + n follower （leader 和follower位于不同的broker)
-相同的消费者组中不能有比分区更多的消费者，否则多出的消费者一直处于空等待，不会收到消息.  
+相同的消费者组中不能有比分区更多的消费者，否则多出的消费者一直处于空等待，不会收到消息.  （消费者组中的消费者实例个数不能超过分区的数量）
 容错机制  
 副本机制  
 负载均衡机制：producer发布消息后具体进入那个分区，默认机制是负载均衡。  
@@ -13,6 +13,10 @@
 
 
 日志的分区partition （分布）在Kafka集群的服务器上。每个服务器在处理数据和请求时，共享这些分区。每一个分区都会在已配置的服务器上进行备份，确保容错性.
+
+
+This is achieved by assigning the partitions in the topic to the consumers in the consumer group so that each partition is consumed by exactly one consumer in the group(这是通过将主题中的分区分配给使用者组中的使用者来实现的，以便每个分区都恰好被该组中的一个使用者所使用。一个分区针对每个消费组都会有指明某一个消费者，除非这个消费者丢失了，再次分配策略？？)
+
 
 ![1](https://raw.githubusercontent.com/xyycici1/gggg/master/image/001.png)
 ![2](https://raw.githubusercontent.com/xyycici1/gggg/master/image/002.png)
@@ -25,7 +29,8 @@ https://my.oschina.net/u/236698/blog/501834  kafka&rabbitmq
 https://blog.csdn.net/tangdong3415/article/details/53432166  好文  
 https://www.jianshu.com/p/1582b37291f9  队列应用场景&对比  
 http://www.cnblogs.com/cjsblog/p/9664536.html. Kafka分区与消费者的关系，producer如何选择分区，消费者如何选择分区。（Good  
-https://blog.csdn.net/feelwing1314/article/details/81097167 kafka消费者如何分配分区
+https://blog.csdn.net/feelwing1314/article/details/81097167 kafka消费者如何分配分区。
+https://blog.csdn.net/alinshen/article/details/80583214  各个m区别。
 ```
 # Licensed to the Apache Software Foundation (ASF) under one or more
 # contributor license agreements.  See the NOTICE file distributed with
