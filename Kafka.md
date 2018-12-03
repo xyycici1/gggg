@@ -174,3 +174,8 @@ zookeeper.connection.timeout.ms=6000
 # However, in production environments the default value of 3 seconds is more suitable as this will help to avoid unnecessary, and potentially expensive, rebalances during application startup.
 group.initial.rebalance.delay.ms=0
 ```
+
+
+
+ProducerConfig 基础配置 
+ConsumerConfig 基础配置
